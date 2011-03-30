@@ -1,0 +1,886 @@
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (90.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (239.7ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (8.1ms)[0m   [0mSHOW KEYS FROM `schema_migrations`[0m
+  [4;36;1mSQL (202.4ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (15.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20110323004454)
+  [4;35;1mSQL (96.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255) DEFAULT '' NOT NULL, `phone` varchar(255), `user_type` int(11), `encrypted_password` varchar(128) DEFAULT '' NOT NULL, `password_salt` varchar(255) DEFAULT '' NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110323004454')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (40.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2011-03-22 21:52:14) [GET]
+  [4;35;1mUser Load (44.5ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering users/index
+
+ActionView::TemplateError (undefined method `title' for #<ActionView::Base:0x1033d8f20>) on line #1 of app/views/users/index.html.erb:
+1: <% title "Users" %>
+2: 
+3: <table>
+4:   <tr>
+
+    app/views/users/index.html.erb:1
+    warden (0.10.7) lib/warden/manager.rb:35:in `call'
+    warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+    warden (0.10.7) lib/warden/manager.rb:34:in `call'
+    devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (114.0ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2011-03-22 21:53:58) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2011-03-22 21:54:00) [GET]
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (12.9ms)
+Completed in 26ms (View: 21, DB: 2) | 200 OK [http://localhost/users/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2011-03-22 21:54:25) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"hkhirdUxonDAOHgRt5uWhrpiHmsAMNMUfZrU8bgx3mQ=", "user"=>{"name"=>"Sabrina", "user_type"=>"2", "phone"=>"122344", "email"=>"sabrinajn@gmail.com"}}
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO `users` (`name`, `encrypted_password`, `created_at`, `updated_at`, `user_type`, `password_salt`, `phone`, `email`) VALUES('Sabrina', '', '2011-03-23 00:54:25', '2011-03-23 00:54:25', 2, '', '122344', 'sabrinajn@gmail.com')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed in 12ms (DB: 3) | 302 Found [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2011-03-22 21:54:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (22.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+Completed in 39ms (View: 10, DB: 24) | 200 OK [http://localhost/users/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20110323004454)
+Migrating to CreateItems (20110323005725)
+  [4;35;1mSQL (451.8ms)[0m   [0mCREATE TABLE `items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `serial` varchar(255), `item_type` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110323005725')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `items`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW KEYS FROM `items`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-03-22 21:58:39) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/application
+Rendering items/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2011-03-22 21:58:41) [GET]
+  [4;35;1mItem Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/application
+Rendering items/new
+Rendered items/_form (8.0ms)
+Completed in 21ms (View: 16, DB: 2) | 200 OK [http://localhost/items/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2011-03-22 21:59:02) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"hkhirdUxonDAOHgRt5uWhrpiHmsAMNMUfZrU8bgx3mQ=", "item"=>{"serial"=>"12345", "name"=>"AllInOne", "description"=>"programa zuado", "item_type"=>"1"}}
+  [4;35;1mItem Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (0.2ms)[0m   [0mINSERT INTO `items` (`name`, `serial`, `created_at`, `updated_at`, `description`, `item_type`) VALUES('AllInOne', '12345', '2011-03-23 00:59:02', '2011-03-23 00:59:02', 'programa zuado', 1)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/items/1
+Completed in 9ms (DB: 2) | 302 Found [http://localhost/items]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-03-22 21:59:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mItem Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering items/show
+Completed in 14ms (View: 8, DB: 1) | 200 OK [http://localhost/items/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20110323004454)
+Migrating to CreateItems (20110323005725)
+Migrating to CreateIncidents (20110323010331)
+  [4;35;1mSQL (104.3ms)[0m   [0mCREATE TABLE `incidents` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `description` text, `user_id` int(11), `owner_id` int(11), `item_id` int(11), `priority` int(11), `status` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110323010331')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `incidents`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `incidents`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `incidents`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `items`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `items`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:03:48) [GET]
+  [4;35;1mIncident Load (0.3ms)[0m   [0mSELECT * FROM `incidents` [0m
+Rendering template within layouts/application
+Rendering incidents/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/incidents]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#new (for 127.0.0.1 at 2011-03-22 22:03:49) [GET]
+  [4;35;1mIncident Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `incidents`[0m
+Rendering template within layouts/application
+Rendering incidents/new
+
+ActionView::TemplateError (undefined method `user' for #<Incident:0x103588be0>) on line #9 of app/views/incidents/_form.html.erb:
+6:   </p>
+7:   <p>
+8:     <%= f.label :user %><br />
+9:     <%= f.text_field :user %>
+10:   </p>
+11:   <p>
+12:     <%= f.label :owner_id %><br />
+
+    app/views/incidents/_form.html.erb:9
+    app/views/incidents/_form.html.erb:1
+    app/views/incidents/new.html.erb:3
+    warden (0.10.7) lib/warden/manager.rb:35:in `call'
+    warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+    warden (0.10.7) lib/warden/manager.rb:34:in `call'
+    devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (134.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#new (for 127.0.0.1 at 2011-03-22 22:05:20) [GET]
+  [4;35;1mIncident Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `incidents`[0m
+Rendering template within layouts/application
+Rendering incidents/new
+Rendered incidents/_form (9.8ms)
+Completed in 20ms (View: 14, DB: 2) | 200 OK [http://localhost/incidents/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#create (for 127.0.0.1 at 2011-03-22 22:05:45) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"hkhirdUxonDAOHgRt5uWhrpiHmsAMNMUfZrU8bgx3mQ=", "incident"=>{"priority"=>"1", "owner_id"=>"1", "user_id"=>"1", "description"=>"opa aophapi", "status"=>"2", "item_id"=>"1"}}
+  [4;35;1mIncident Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `incidents`[0m
+WARNING: Can't mass-assign these protected attributes: user_id, item_id
+  [4;36;1mSQL (1.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mIncident Create (0.3ms)[0m   [0mINSERT INTO `incidents` (`created_at`, `updated_at`, `priority`, `owner_id`, `user_id`, `description`, `item_id`, `status`) VALUES('2011-03-23 01:05:45', '2011-03-23 01:05:45', 1, 1, NULL, 'opa aophapi', NULL, 2)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/incidents/1
+Completed in 12ms (DB: 4) | 302 Found [http://localhost/incidents]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#show (for 127.0.0.1 at 2011-03-22 22:05:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mIncident Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `incidents`[0m
+  [4;35;1mIncident Load (0.3ms)[0m   [0mSELECT * FROM `incidents` WHERE (`incidents`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering incidents/show
+
+ActionView::TemplateError (undefined method `user' for #<Incident:0x1033ecdb8>) on line #9 of app/views/incidents/show.html.erb:
+6: </p>
+7: <p>
+8:   <strong>User:</strong>
+9:   <%=h @incident.user %>
+10: </p>
+11: <p>
+12:   <strong>Owner:</strong>
+
+    app/views/incidents/show.html.erb:9
+    warden (0.10.7) lib/warden/manager.rb:35:in `call'
+    warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+    warden (0.10.7) lib/warden/manager.rb:34:in `call'
+    devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (116.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#show (for 127.0.0.1 at 2011-03-22 22:08:10) [GET]
+  Parameters: {"id"=>"1"}
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:7:in `show'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (4.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#show (for 127.0.0.1 at 2011-03-22 22:08:14) [GET]
+  Parameters: {"id"=>"1"}
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:7:in `show'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (116.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#show (for 127.0.0.1 at 2011-03-22 22:08:15) [GET]
+  Parameters: {"id"=>"1"}
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:7:in `show'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (46.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:08:35) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:08) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (46.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:10) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (48.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:11) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (117.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:12) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:13) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (116.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:14) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (46.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:14) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (116.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:15) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (46.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:16) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (46.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:17) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (120.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:29) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:09:30) [GET]
+
+NoMethodError (undefined method `assert_valid_keys' for :item:Symbol):
+  app/models/incident.rb:2
+  app/controllers/incidents_controller.rb:3:in `index'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (116.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:10:42) [GET]
+  [4;35;1mIncident Load (0.4ms)[0m   [0mSELECT * FROM `incidents` [0m
+Rendering template within layouts/application
+Rendering incidents/index
+  [4;36;1mIncident Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `incidents`[0m
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #17 of app/views/incidents/index.html.erb:
+14:       <td><%=h incident.description %></td>
+15:       <td><%=h incident.user %></td>
+16:       <td><%=h incident.owner_id %></td>
+17:       <td><%=h incident.item.id %></td>
+18:       <td><%=h incident.priority %></td>
+19:       <td><%=h incident.status %></td>
+20:       <td><%= link_to "Show", incident %></td>
+
+    app/views/incidents/index.html.erb:17
+    app/views/incidents/index.html.erb:12:in `each'
+    app/views/incidents/index.html.erb:12
+    warden (0.10.7) lib/warden/manager.rb:35:in `call'
+    warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+    warden (0.10.7) lib/warden/manager.rb:34:in `call'
+    devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (48.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:11:27) [GET]
+  [4;36;1mIncident Load (0.3ms)[0m   [0;1mSELECT * FROM `incidents` [0m
+Rendering template within layouts/application
+Rendering incidents/index
+  [4;35;1mIncident Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `incidents`[0m
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mItem Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+Completed in 28ms (View: 19, DB: 5) | 200 OK [http://localhost/incidents]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:11:42) [GET]
+  [4;35;1mIncident Load (0.5ms)[0m   [0mSELECT * FROM `incidents` [0m
+Rendering template within layouts/application
+Rendering incidents/index
+  [4;36;1mIncident Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `incidents`[0m
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mItem Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+Completed in 28ms (View: 19, DB: 5) | 200 OK [http://localhost/incidents]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#new (for 127.0.0.1 at 2011-03-22 22:11:53) [GET]
+  [4;36;1mIncident Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `incidents`[0m
+Rendering template within layouts/application
+Rendering incidents/new
+Rendered incidents/_form (11.1ms)
+Completed in 22ms (View: 16, DB: 2) | 200 OK [http://localhost/incidents/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#create (for 127.0.0.1 at 2011-03-22 22:12:01) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"hkhirdUxonDAOHgRt5uWhrpiHmsAMNMUfZrU8bgx3mQ=", "incident"=>{"priority"=>"1", "owner_id"=>"1", "description"=>"jyf", "status"=>"1", "user"=>"1", "item"=>"1"}}
+  [4;36;1mIncident Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `incidents`[0m
+
+ActiveRecord::AssociationTypeMismatch (User(#2173824120) expected, got String(#2148412400)):
+  app/controllers/incidents_controller.rb:15:in `new'
+  app/controllers/incidents_controller.rb:15:in `create'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#create (for 127.0.0.1 at 2011-03-22 22:12:11) [POST]
+  Parameters: {"commit"=>"Save changes", "authenticity_token"=>"hkhirdUxonDAOHgRt5uWhrpiHmsAMNMUfZrU8bgx3mQ=", "incident"=>{"priority"=>"1", "owner_id"=>"1", "description"=>"jyf", "status"=>"1", "user"=>"1", "item"=>"1"}}
+  [4;36;1mIncident Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `incidents`[0m
+
+ActiveRecord::AssociationTypeMismatch (User(#2174647740) expected, got String(#2148412400)):
+  app/controllers/incidents_controller.rb:15:in `new'
+  app/controllers/incidents_controller.rb:15:in `create'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+  devise (1.0.10) lib/devise/rails/warden_compat.rb:43:in `call'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /Users/rafaeltimbo/.rvm/rubies/ruby-1.8.7-p174/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (45.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing IncidentsController#index (for 127.0.0.1 at 2011-03-22 22:12:25) [GET]
+  [4;36;1mIncident Load (0.3ms)[0m   [0;1mSELECT * FROM `incidents` [0m
+Rendering template within layouts/application
+Rendering incidents/index
+  [4;35;1mIncident Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `incidents`[0m
+  [4;36;1mUser Columns (3.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mItem Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (0.2ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+Completed in 30ms (View: 17, DB: 8) | 200 OK [http://localhost/incidents]
+/!\ FAILSAFE /!\  Fri Mar 25 14:59:51 -0300 2011
+  Status: 500 Internal Server Error
+  uninitialized constant MysqlCompat::MysqlRes
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.10/lib/active_support/dependencies.rb:466:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.10/lib/active_support/dependencies.rb:106:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/mysql_adapter.rb:9:in `define_all_hashes_method!'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/mysql_adapter.rb:68:in `mysql_connection'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.10/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:35:in `call'
+    /Library/Ruby/Gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+    /Library/Ruby/Gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:34:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.10/lib/action_controller/string_coercion.rb:25:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/head.rb:9:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/methodoverride.rb:24:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.10/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.10/lib/action_controller/session/cookie_store.rb:100:in `call'
+    /Library/Ruby/Gems/1.8/gems/devise-1.0.10/lib/devise/rails/warden_compat.rb:43:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.10/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.10/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.10/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.10/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/urlmap.rb:47:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/urlmap.rb:41:in `each'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/urlmap.rb:41:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.10/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/handler/webrick.rb:48:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rack-1.1.2/lib/rack/handler/webrick.rb:14:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.10/lib/commands/server.rb:111
+    script/server:3:in `require'
+    script/server:3

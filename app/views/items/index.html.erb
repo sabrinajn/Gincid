@@ -1,0 +1,24 @@
+<% title "Items" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Serial</th>
+    <th>Item Type</th>
+	<th colspan="3">Action</th>
+  </tr>
+  <% for item in @items %>
+    <tr>
+      <td><%=h item.name %></td>
+      <td><%=h item.description %></td>
+      <td><%=h item.serial %></td>
+      <td><%=h Item::TYPE.invert[item.item_type.to_s] %></td>
+      <td><%= link_to "Show", item %></td>
+      <td><%= link_to "Edit", edit_item_path(item) %></td>
+      <td><%= link_to "Destroy", item, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Item", new_item_path %></p>

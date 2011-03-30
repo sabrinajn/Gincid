@@ -1,0 +1,11 @@
+one:
+  name: joão
+  email: joao@gmail.com
+  phone: (11)8889-0000
+  user_type: 1
+
+two:
+  name: maria
+  email: maria@gmail.com
+  phone: (11)9999-0000
+  user_type: 1

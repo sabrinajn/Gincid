@@ -1,0 +1,28 @@
+<% title "Incidents" %>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>User</th>
+    <th>Owner</th>
+    <th>Item</th>
+    <th>Priority</th>
+    <th>Status</th>
+	<th colspan="3">Action</th>
+  </tr>
+  <% for incident in @incidents %>
+    <tr>
+      <td><%=h incident.description %></td>
+      <td><%=h incident.user.name %></td>
+      <td><%=h incident.owner_id %></td>
+      <td><%=h incident.item.name %></td>
+      <td><%=h incident.priority %></td>
+      <td><%=h incident.status %></td>
+      <td><%= link_to "Show", incident %></td>
+      <td><%= link_to "Edit", edit_incident_path(incident) %></td>
+      <td><%= link_to "Destroy", incident, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Incident", new_incident_path %></p>

@@ -1,0 +1,24 @@
+<% title "Item" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @item.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @item.description %>
+</p>
+<p>
+  <strong>Serial:</strong>
+  <%=h @item.serial %>
+</p>
+<p>
+  <strong>Item Type:</strong>
+  <%=h Item::TYPE.invert[@item.item_type.to_s] %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_item_path(@item) %> |
+  <%= link_to "Destroy", @item, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", items_path %>
+</p>

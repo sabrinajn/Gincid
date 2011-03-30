@@ -1,0 +1,11 @@
+one:
+  name: servidorX
+  description: servidor linux
+  serial: ABDC124324325
+  item_type: 1
+
+two:
+  name: FinancialSys
+  description: Sistema Financeiro
+  serial:
+  item_type: 2

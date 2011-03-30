@@ -1,0 +1,20 @@
+<% form_for @item do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :serial %><br />
+    <%= f.text_field :serial %>
+  </p>
+  <p>
+    <%= f.label :item_type %><br />
+    <%= f.select :item_type, options_for_select(Item::TYPE), {:multiple => FALSE} %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

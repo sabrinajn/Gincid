@@ -1,0 +1,32 @@
+<% title "Incident" %>
+
+<p>
+  <strong>Description:</strong>
+  <%=h @incident.description %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=h @incident.user %>
+</p>
+<p>
+  <strong>Owner:</strong>
+  <%=h @incident.owner_id %>
+</p>
+<p>
+  <strong>Item:</strong>
+  <%=h @incident.item %>
+</p>
+<p>
+  <strong>Priority:</strong>
+  <%=h @incident.priority %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%=h @incident.status %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_incident_path(@incident) %> |
+  <%= link_to "Destroy", @incident, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", incidents_path %>
+</p>
